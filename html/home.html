@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>ISO 639 Language</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <h1>ISO 639</h1>
+                    <p class="lead">Providing localized names for ISO 639 languages</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row marketing">
+            <div class="col-sm-8 col-sm-offset-2">
+                <h2>About</h2>
+                <h4>The Standard</h4>
+                <p>The ISO 639 standard is commonly used to store language information with unique codes. There are several parts to the standard; the codes for each part are not compatible. </p>
+                <h4>The Service</h4>
+                <p>This service allows you to query an ISO 639 code and receive both the English and localized names. Currently, only part 1 (ISO 639-1) is supported.</p>
+                <p>Future features may include:</p>
+                    <ul>
+                        <li>Localized names for specific languages (i.e. cross-translated language names), contingent on quality data.</li>
+                        <li>Support for other ISO 639 parts, if demand warrants it.</li>
+                    </ul>
+                <br/>
+                <h2>Usage</h2>
+                <h4>REST API</h4>
+                <p>Query a language code using a GET request:</p>
+                <pre>/part1?code=pa</pre>
+
+                <p>And receive a JSON document like this:</p>
+                    <pre>{
+    "code":"pa",
+    "en_name":"Panjabi",
+    "alt_en_names":["Punjabi"],
+    "local_name":"ਪੰਜਾਬੀ",
+    "alt_local_names":["پنجابی‎"]
+}</pre>
+
+                <p> Fields:
+                <dl class="dl-horizontal">
+                    <dt>code</dt><dd>The ISO 639 code requested</dd>
+                    <dt>en_name</dt><dd>The English name of the language.</dd>
+                    <dt>alt_en_names</dt><dd>Alternative English spellings or names (if present). <code>null</code> if does not exist.</dd>
+                    <dt>local_name</dt><dd>The name of the language as written in the local script.</dd>
+                    <dt>alt_local_names</dt><dd>Alternative spellings or names as written in local script(s). <code>null</code> if does not exist.</dd>
+                </dl>
+                </p>
+                <br/>
+                <h2>Raw data</h2>
+                <p>To obtain the raw data behind this service or use the Go library it's based on, check out the source code at <a href="https://github.com/andrewksl/iso639">github.com/andrewksl/iso639</a> </p>
+
+            </div>
+        </div>
+        <div style="height:50px;"></div>
+    </div>
+</body>
+</html>
